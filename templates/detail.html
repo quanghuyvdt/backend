@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% block content %}
+<form action="/update/{{student._id}}" method="post">
+    <div>
+        <div>_ID</div>
+        <input type="text" value="{{ student._id }}" disabled name="_id">
+    </div>
+    <div>
+        <div>Họ tên:</div>
+        <input type="text" value="{{ student.name }}" name="name">
+    </div>
+    <div>
+        <div>Năm sinh:</div>
+        <input type="text" value="{{student.yob}}" name="yob">
+    </div>
+    <div>
+        <div>Giới tính:</div>
+        <div>
+            <label for="male">Nam</label>
+            <input type="radio" name="gender" id="male" value="Nam" {{'checked' if student.gender == 'Nam' else '' }}>
+        </div>
+        <div>
+            <label for="female">Nữ</label>
+            <input type="radio" name="gender" id="female" value="Nũ" {{'checked'  if student.gender == 'Nữ' else '' }}>
+        </div>
+
+    </div>
+    <div>
+        <div>Đại học:</div>
+        <input type="text" value="{{student.university}}" name="university">
+    </div>
+    <div>
+        <div>Quốc gia:</div>
+        <input type="text" value="{{student.country}}" name="country">
+    </div>
+    <input type="submit" value="Lưu">
+</form>
+
+{% endblock %}

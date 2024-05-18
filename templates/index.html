@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="content-container">
+    <div>
+        <a href="/add">Thêm mới</a>
+    </div>
+	<table>
+		<thead>
+			<tr>
+				<th>STT</th>
+				<th>Họ và tên</th>
+				<th>Năm sinh</th>
+				<th>Giới tính</th>
+				<th>Trường</th>
+				<th>Quốc gia</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for sequence, student in students %}
+			<tr>
+				<td>{{sequence}}</td>
+				<td>{{student.name}}</td>
+				<td>{{student.yob}}</td>
+				<td>{{student.gender}}</td>
+				<td>{{student.university}}</td>
+				<td>{{student.country}}</td>
+				<td>
+					<a href="/detail/{{student._id}}">Sửa</a>
+					<form action="/delete/{{student._id}}" method="post">
+                        <button type="submit" onclick="return confirm('Bạn có chắc muốn xóa thành viên này?')">Xóa</button>
+                    </form>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}

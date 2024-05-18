@@ -1,0 +1,35 @@
+{% extends 'base.html'%}
+{% block content %}
+<form action="/add" method="post">
+    <div>
+        <div>Họ tên:</div>
+        <input type="text" id="name" name="name">
+    </div>
+    <div>
+        <div>Năm sinh:</div>
+        <input type="number" id="yob" name="yob" max="2024" min="1900">
+    </div>
+    <div>
+        <div>Giới tính:</div>
+        <div>
+            <label for="male">Nam</label>
+            <input type="radio" name="gender" id="male" value="Nam">
+        </div>
+        <div>
+            <label for="female">Nữ</label>
+            <input type="radio" name="gender" id="female" value="Nũ" >
+        </div>
+
+    </div>
+    <div>
+        <div>Đại học:</div>
+        <input type="text"id="university" name="university">
+    </div>
+    <div>
+        <div>Quốc gia:</div>
+        <input type="text" id="country" name="country">
+    </div>
+    <input type="submit" value="Lưu">
+</form>
+
+{% endblock %}
